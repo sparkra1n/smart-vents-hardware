@@ -20,5 +20,12 @@ aa
 #### Block Diagram
 aa
 
+#### BOM
+| Component    | Value |     Count  | Price      |
+|--------------|------:|-----------:|-----------:|
+| ESP32        |  -    |      2     |    $5.00   |
+| R1           |  4.7K |      6     |    $0.00   |
+| a           |  a |      a     |    $0.00   |
+
 #### Demo
 aa
