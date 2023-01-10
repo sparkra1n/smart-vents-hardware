@@ -17,7 +17,7 @@ to adjust to changes is a core part of smart devices.
 ## Solution
 text text
 
-#### Block Diagram
+#### Block Diagram (typos inside)
 ![vent](concept/ventFlowChart.jpg)
 
 #### BOM
