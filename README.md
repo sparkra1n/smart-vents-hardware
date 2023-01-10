@@ -18,7 +18,7 @@ to adjust to changes is a core part of smart devices.
 aa
 
 #### Block Diagram
-aa
+![vent](concept/ventFlowChart.jpg)
 
 #### BOM
 | Component    | Value |     Count  | Price      |
