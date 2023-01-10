@@ -15,7 +15,7 @@ room (personal experience). And having the option and ability
 to adjust to changes is a core part of smart devices.
 
 ## Solution
-aa
+text text
 
 #### Block Diagram
 ![vent](concept/ventFlowChart.jpg)
@@ -28,4 +28,4 @@ aa
 | a           |  a |      a     |    $0.00   |
 
 #### Demo
-aa
+tex text
