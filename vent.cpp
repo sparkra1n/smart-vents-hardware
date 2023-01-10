@@ -16,13 +16,23 @@ class vent
         heatingTime = d;
     }
 
-    double getTemp(const double& t) const
+    double getTemp() const
     {
         return temp;
     }
 
-    double getHeatingTime(const double& d) const
+    double getHeatingTime() const
     {
         return heatingTime;
+    }
+
+    void open()
+    {
+
+    }
+
+    void close()
+    {
+
     }
 };
