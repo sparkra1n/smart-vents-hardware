@@ -1,6 +1,6 @@
 # Smart Vents
 Solar Suitcase 2022 - 2023 \
-IoT system for improved efficiency in multi-story heating
+IoT system for improved efficiency in multi-zoned heating
 
 ## Problem
 Heat rises. When I lived in a multi-story house in Seattle, 
@@ -17,8 +17,8 @@ to adjust to changes is a core part of smart devices.
 ## Solution
 aa
 
-### Block Diagram
+#### Block Diagram
 aa
 
-### Demo
+#### Demo
 aa
