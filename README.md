@@ -26,17 +26,24 @@ option to heat every room in a traditional manner and disable
 room prioritiztion.
 
 #### Block Diagram
-![vent-components](concept/vent-components.png)
+
+###### Hardware
+<img src="concept/vent-components.png" alt="vent-components" width="50%"/> \
 A vent consists of an ESP32 as its CPU with Wi-Fi capabilities.
 This will allow the vent to communicate with the thermostat or 
 central hub. Each vent also has a temperature and motion sensor.
+
+###### Start
+<img src="concept/vent-idle.png" alt="vent-idle" height="250px"/> \
+The vent starts in low-power mode, and checks the temperature 
+and motion sensor occasionally with an interrupt.
 
 #### BOM
 | Component    | Value |     Count  | Price      |
 |--------------|------:|-----------:|-----------:|
 | ESP32        |  -    |      2     |    $5.00   |
 | R1           |  4.7K |      6     |    $0.00   |
-| a           |  a |      a     |    $0.00   |
+| a            |  a    |      a     |    $0.00   |
 
 #### Demo
 tex text
