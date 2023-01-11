@@ -28,7 +28,7 @@ room prioritiztion.
 #### Block Diagram
 
 ###### Hardware
-<img src="concept/vent-components.png" alt="vent-components" width="50%"/> \
+<img src="concept/vent-components.png" alt="vent-components" height="175px"/> \
 A vent consists of an ESP32 as its CPU with Wi-Fi capabilities.
 This will allow the vent to communicate with the thermostat or 
 central hub. Each vent also has a temperature and motion sensor.
@@ -38,6 +38,18 @@ central hub. Each vent also has a temperature and motion sensor.
 The vent starts in low-power mode, and checks the temperature 
 and motion sensor occasionally with an interrupt.
 
+###### Interrupt
+<img src="concept/vent-interrupt.png" alt="vent-interrupt" height="450px"/> \
+The interrupt is triggered by a counter overflow and its frequency can be changed 
+with a prescaler. In the interrupt, the ESP32 checks whether the temp is 
+lower than the set temp and whether something moved.
+
+###### Main (Incomplete)
+<img src="concept/vent-main.png" alt="vent-main" height="1200px"/> \
+The vent will initiate the heating process by interfacing with the central hub 
+once it detects a room with a lower temperature. Of course, the comparison logic 
+should consider the hysteresis--it would be bad to turn on and off the heater 
+repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cools down.
 #### BOM
 | Component    | Value |     Count  | Price      |
 |--------------|------:|-----------:|-----------:|
