@@ -45,7 +45,7 @@ with a prescaler. In the interrupt, the ESP32 checks whether the temp is
 lower than the set temp and whether something moved.
 
 ###### Main (Incomplete)
-<img src="concept/vent-main.png" alt="vent-main" height="1200px"/> \
+<img src="concept/vent-main.png" alt="vent-main" height="1100px"/> \
 The vent will initiate the heating process by interfacing with the central hub 
 once it detects a room with a lower temperature. Of course, the comparison logic 
 should consider the hysteresis--it would be bad to turn on and off the heater 
