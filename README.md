@@ -58,4 +58,4 @@ repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cool
 | NX4832T035   |  -      |      1     |    $39.90   |
 
 #### Demo
-tex text
+To demonstrate the concept, a setup of different-sized heat-insulated boxes with thermometers attatched will simulate a house
