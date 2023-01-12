@@ -51,11 +51,11 @@ once it detects a room with a lower temperature. Of course, the comparison logic
 should consider the hysteresis--it would be bad to turn on and off the heater 
 repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cools down.
 #### BOM
-| Component    | Value |     Count  | Price      |
-|--------------|------:|-----------:|-----------:|
-| ESP32        |  -    |      2     |    $5.00   |
-| R1           |  4.7K |      6     |    $0.00   |
-| a            |  a    |      a     |    $0.00   |
+| Component    | Value   |     Count  | Price       |
+|--------------|:-------:|-----------:|------------:|
+| ESP32        |  -      |      2     |    $5.00    |
+| R1           |  4.7K   |      6     |    $0.00    |
+| NX4832T035   |  -      |      1     |    $39.90   |
 
 #### Demo
 tex text
