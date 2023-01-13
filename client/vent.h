@@ -1,4 +1,4 @@
-class vent
+class Vent
 {
     private:
         double temp;

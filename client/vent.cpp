@@ -3,14 +3,14 @@
 #include <Arduino.h>
 #include <stdio.h>
 
-
-class vent
+class Vent
 {
     private:
+        unsigned char id;
         double temp;
         double heatingTime;
     public:
-        vent(double temperature, double openDuration) : temp(temperature), heatingTime(openDuration) {}
+        Vent(double temperature, double openDuration) : id(id), temp(temperature), heatingTime(openDuration) {}
 
         void setTemp(const double& t)
         {
@@ -43,23 +43,33 @@ class vent
         }
 };
 
-
-hw_timer_t *timerInterrupt = NULL;
-
-void IRAM_ATTR onTimer()
+namespace idle
 {
-    digitalWrite(LED, !digitalRead(LED));
+    hw_timer_t *timerInterrupt = NULL;
+
+    void init()
+    {
+        timerInterrupt = timerBegin(0, 80, true);
+        timerAttachInterrupt(timerInterrupt, &onTimer, true);
+        timerAlarmWrite(timerInterrupt, 1000000, true);
+        timerAlarmEnable(timerInterrupt);
+    }
+
+    void IRAM_ATTR onTimer()
+    {
+        // do sensor stuff
+    }
 }
 
-void setup() 
-{
-    timerInterrupt = timerBegin(0, 80, true);
-    timerAttachInterrupt(timerInterrupt, &onTimer, true);
-    timerAlarmWrite(timerInterrupt, 1000000, true);
-    timerAlarmEnable(timerInterrupt); //Just Enable
-}
 
-void loop() 
+int main()
 {
+    idle::init();
 
+    while (1)
+    {
+
+    }
+    
+    return 0;
 }
