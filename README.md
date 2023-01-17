@@ -29,11 +29,7 @@ room prioritiztion.
 
 ###### Communitcation
 <img src="concept/wifi-comm.png" alt="wifi-comm" height="350px"/> \
-**TODO:** Decide on an option for communication. Most likely, the devices will communicate
-via the household Wi-Fi network. This means that the thermostat will have to know each of the
-vent's IP addresses, and each of the vents has to know the thermostat's IP address. Additionally, 
-all the devices must be connected to the home internet network. This might mean that a short range 
-communication protocol will be needed for pairing the devices during setup.
+The ESP-NOW communication protocol will be used as the method of two-way communication.
 
 ###### Hardware
 <img src="concept/vent-components.png" alt="vent-components" height="175px"/> \
