@@ -28,7 +28,7 @@ room prioritiztion.
 #### Block Diagram
 
 ###### Communitcation
-<img src="concept/wifi-comm.png" alt="wifi-comm" height="175px"/> \
+<img src="concept/wifi-comm.png" alt="wifi-comm" height="350px"/> \
 **TODO:** Decide on an option for communication. Most likely, the devices will communicate
 via the household Wi-Fi network. This means that the thermostat will have to know each of the
 vent's IP addresses, and each of the vents has to know the thermostat's IP address. Additionally, 
