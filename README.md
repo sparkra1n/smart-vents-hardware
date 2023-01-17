@@ -55,9 +55,9 @@ once it detects a room with a lower temperature. Of course, the comparison logic
 should consider the hysteresis--it would be bad to turn on and off the heater 
 repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cools down.
 #### BOM
-| Component    | Value   |     Count  | Price       |
-|--------------|:-------:|-----------:|------------:|
-| ESP32        |  -      |      2     |    $5.00    |
+| Component    | Value   |     Count  | Price       | Link      |
+|--------------|:-------:|-----------:|------------:|----------:|
+| ESP32        |  -      |      2     |    $5.00    | [Purchase]([linkurl](https://www.amazon.com/ESP32-WROOM-32-Development-ESP-32S-Bluetooth-Arduino/dp/B084KWNMM4?tag=affinity1-20&ascsubtag=srctok-852381d4e7b31f3d&btn_ref=srctok-852381d4e7b31f3d))
 | R1           |  4.7K   |      6     |    $0.00    |
 | NX4832T035   |  -      |      1     |    $39.90   |
 
