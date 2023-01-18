@@ -28,7 +28,7 @@ room prioritiztion.
 #### Block Diagram
 
 ###### Communitcation
-<img src="concept/wifi-comm.png" alt="wifi-comm" height="350px"/> \
+<img src="concept/wifi-comm.png" alt="wifi-comm" height="325px"/> \
 The ESP-NOW communication protocol will be used as the method of two-way communication.
 
 ###### Hardware
@@ -38,12 +38,12 @@ This will allow the vent to communicate with the thermostat or
 central hub. Each vent also has a temperature and motion sensor.
 
 ###### Start
-<img src="concept/vent-idle.png" alt="vent-idle" height="250px"/> \
+<img src="concept/vent-idle.png" alt="vent-idle" height="275x"/> \
 The vent starts in low-power mode, and checks the temperature 
 and motion sensor occasionally with an interrupt.
 
 ###### Interrupt
-<img src="concept/vent-interrupt.png" alt="vent-interrupt" height="450px"/> \
+<img src="concept/vent-interrupt.png" alt="vent-interrupt" height="475px"/> \
 The interrupt is triggered by a counter overflow and its frequency can be changed 
 with a prescaler. In the interrupt, the ESP32 checks whether the temp is 
 lower than the set temp and whether something moved.
