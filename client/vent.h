@@ -6,6 +6,16 @@
 
 #pragma once
 
+#include <Arduino.h>
+#include <esp_now.h>
+#include <WiFi.h>
+
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <array>
+#include <stdio.h>
+
 class Vent
 {
     private:
