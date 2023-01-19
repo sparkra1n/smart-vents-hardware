@@ -1,75 +1,55 @@
-#include "vent.h"
+/*
+ * File     : server.cpp
+ * Authors  : Ani
+ * Date     : 1/6/23
+*/
+
+#include "server.h"
 
 #include <Arduino.h>
-#include <stdio.h>
+#include <esp_now.h>
+#include <WiFi.h>
 
-class Vent
+#include <stdio.h>
+#include <vector>
+#include <string>
+#include <array>
+
+class VentS
 {
     private:
-        unsigned char id;
-        double temp;
-        double heatingTime;
+        std::array<__uint8_t, 6> mac;
+        std::string room;
     public:
-        Vent(double temperature, double openDuration) : id(id), temp(temperature), heatingTime(openDuration) {}
-
-        void setTemp(const double& t)
-        {
-            temp = t;
-        }
-
-        void setOpenDuration(const double& d)
-        {
-            heatingTime = d;
-        }
-
-        double getTemp() const
-        {
-            return temp;
-        }
-
-        double getHeatingTime() const
-        {
-            return heatingTime;
-        }
-
-        void open()
-        {
-            
-        }
-
-        void close()
+        VentS() : mac(mac), room(room) {}
+        void send() 
         {
 
         }
 };
 
-namespace idle
+class Server
 {
-    hw_timer_t *timerInterrupt = NULL;
+    private: 
+        std::vector<VentS> ventList;
+    public:
+        Server() : vents(ventList), ssid(ssid), pswd(pswd) {}
+        inline void addVent(const VentS& v)
+        {
+            ventList.emplace_back(v);
+        }
 
-    void init()
-    {
-        timerInterrupt = timerBegin(0, 80, true);
-        timerAttachInterrupt(timerInterrupt, &onTimer, true);
-        timerAlarmWrite(timerInterrupt, 1000000, true);
-        timerAlarmEnable(timerInterrupt);
-    }
-
-    void IRAM_ATTR onTimer()
-    {
-        // do sensor stuff
-    }
-}
-
+        inline void removeVent(const VentS& v)
+        {
+            ventList.erase(std::remove(ventList.begin(), ventList.end(), v), ventList.end());
+        }
+        
+};
 
 int main()
 {
-    idle::init();
-
     while (1)
     {
 
     }
-    
-    return 0;
 }
