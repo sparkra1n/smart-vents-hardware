@@ -5,6 +5,7 @@
 */
 
 #include "vent.h"
+#include "../payload.h"
 
 #include <Arduino.h>
 #include <esp_now.h>
@@ -18,6 +19,9 @@
 
 class Vent
 {
+    private:
+        double temp;
+        double heatingTime;
     public:
         Vent(double temperature, double openDuration) : temp(temperature), heatingTime(openDuration) {}
 
@@ -51,9 +55,7 @@ class Vent
 
         }
 };
-
-namespace idle
-{
+/*
     hw_timer_t *timerInterrupt = NULL;
 
     void init()
@@ -68,17 +70,4 @@ namespace idle
     {
         // do sensor stuff
     }
-}
-
-
-int main()
-{
-    idle::init();
-
-    while (1)
-    {
-
-    }
-    
-    return 0;
-}
+    */

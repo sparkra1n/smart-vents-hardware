@@ -4,6 +4,10 @@
  * Date     : 1/6/23
 */
 
+#pragma once
+
+#include "../payload.h"
+
 #include <Arduino.h>
 #include <esp_now.h>
 #include <WiFi.h>
@@ -14,36 +18,18 @@
 #include <array>
 #include <stdio.h>
 
-#pragma once
-
-typedef __uint8_t[6] macAddress;
-
-typedef enum Action 
-{
-    OPEN,  // Open vent
-    CLOSE, // Close vent
-    GET,   // Get temp
-    SET,   // Set temp
-} Action;
-
-typedef struct ServerPayload
-{
-
-} ServerPayload;
-
-typedef struct ClientPayload
-{
-    Action action;
-} ClientPayload;
-
 class VentS 
 {
-    
+    private:
+        std::array<__uint8_t, 6> mac;
+        std::string room;
+    public:
+        VentS() : mac(mac), room(room) {}
 }
 
 class Server
 {
     Server() : vents(ventList), ssid(ssid), pswd(pswd) {}
-    inline void addVent(const VentS& v);
-    inline void removeVent(const VentS& v);
+    void addVent(const VentS& v);
+    void removeVent(const VentS& v);
 };
