@@ -11,3 +11,10 @@
 
 ## Sensors
 1. Make subroutines to check temp and room activity (PIR sensor)
+
+## Hardware
+1. How to open / close vent
+2. Some plumbing to do for our isolated "room" test demo
+3. 3d CAD demo if we have time
+
+###### the more overkill we go, the more likely we get better ranks and prizes lol
