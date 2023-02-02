@@ -20,10 +20,10 @@
 ###### the more overkill we go, the more likely we get better ranks and prizes lol
 
 # Timeline
-02/05: Finish peer-to-peer system
-02/12: Temp and Motion Sensor interrupts (vent checks, and server updates, both according to interrupt prescaler)
-03/05: Get motorized vents working
-03/26: Have house demo box set up with tubes for heat to travel to vent
-04/09: Callibration of temp sensor complete
+02/05: Finish peer-to-peer system \
+02/12: Temp and Motion Sensor interrupts (vent checks, and server updates, both according to interrupt prescaler) \
+03/05: Get motorized vents working \
+03/26: Have house demo box set up with tubes for heat to travel to vent \
+04/09: Callibration of temp sensor complete \
 05/01: Wrap up, get some time during SS meeting for a practice demo
 
