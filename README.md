@@ -57,9 +57,13 @@ repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cool
 #### BOM
 | Component    | Value   |     Count  | Price       | Link      |
 |--------------|:-------:|-----------:|------------:|----------:|
-| ESP32        |  -      |      2     |    $5.00    | [Purchase](https://www.amazon.com/ESP32-WROOM-32-Development-ESP-32S-Bluetooth-Arduino/dp/B084KWNMM4?tag=affinity1-20&ascsubtag=srctok-852381d4e7b31f3d&btn_ref=srctok-852381d4e7b31f3d)
-| R1           |  4.7K   |      6     |    $0.00    |
-| NX4832T035   |  -      |      1     |    $39.90   |
+| U1           |  ESP32-S2    |      4     |    $5.00    |    |
+| U2           |  BME280   |      6     |    $6.00    |    |
+| U3           |  MCP602   |      3     |    $2.50    |    |
+| D1           |  NX4832T035      |      1     |    $39.90   |    |
+| R1           |  1M     |      3     |    -    |    |
+| R2           |  10K   |      6     |    -    |    |
+
 
 #### Demo
 To demonstrate the concept, a setup of different-sized heat-insulated boxes with thermometers attatched will simulate a house
