@@ -31,8 +31,8 @@ room prioritiztion.
 <img src="concept/future.png" width="50%"/> \
 The ESP-NOW communication protocol will be used as the method of two-way communication between the thermostat and vents. The server also acts as a websocket server on the network in order to view the current temperatures of each room and set the temperature.
 
-###### Hardware Block Diagram
 <img src="concept/basic.png" width="50%"/> \
+<img src="concept/vent.png" width="50%"/> \
 A vent consists of an ESP32 as its CPU with Wi-Fi capabilities.
 This will allow the vent to communicate with the thermostat or 
 central hub. Each vent also has a temperature and motion sensor.
