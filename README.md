@@ -28,6 +28,7 @@ room prioritiztion.
 #### Block Diagram
 
 ###### Communitcation
+<img src="concept/future.png" width="50%"/> \
 The ESP-NOW communication protocol will be used as the method of two-way communication between the thermostat and vents. The server also acts as a websocket server on the network in order to view the current temperatures of each room and set the temperature.
 
 ###### Hardware Block Diagram
