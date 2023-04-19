@@ -28,32 +28,22 @@ room prioritiztion.
 #### Block Diagram
 
 ###### Communitcation
-<img src="concept/wifi-comm.png" alt="wifi-comm" height="325px"/> \
-The ESP-NOW communication protocol will be used as the method of two-way communication.
+The ESP-NOW communication protocol will be used as the method of two-way communication between the thermostat and vents. The server also acts as a websocket server on the network in order to view the current temperatures of each room and set the temperature.
 
-###### Hardware
-<img src="concept/vent-components.png" alt="vent-components" height="175px"/> \
+###### Hardware Block Diagram
+<img src="concept/basic.png" width="50%"/> \
 A vent consists of an ESP32 as its CPU with Wi-Fi capabilities.
 This will allow the vent to communicate with the thermostat or 
 central hub. Each vent also has a temperature and motion sensor.
 
 ###### Start
-<img src="concept/vent-idle.png" alt="vent-idle" height="275x"/> \
 The vent starts in low-power mode, and checks the temperature 
-and motion sensor occasionally with an interrupt.
+and motion sensor occasionally with an thread.
 
-###### Interrupt
-<img src="concept/vent-interrupt.png" alt="vent-interrupt" height="475px"/> \
-The interrupt is triggered by a counter overflow and its frequency can be changed 
-with a prescaler. In the interrupt, the ESP32 checks whether the temp is 
-lower than the set temp and whether something moved.
+###### Main
 
-###### Main (Incomplete)
-<img src="concept/vent-main.png" alt="vent-main" height="1100px"/> \
-The vent will initiate the heating process by interfacing with the central hub 
-once it detects a room with a lower temperature. Of course, the comparison logic 
-should consider the hysteresis--it would be bad to turn on and off the heater 
-repeatedly when the temp is 24.9 and then turn off at 25 and repeat when it cools down.
+The thermostat will initiate the heating process once it recieves a temperature that is lower than what is set. Of course, the comparison logic 
+should consider the hysteresis--it would be bad to turn on and off the heater when the temperature dips slightly.
 #### BOM
 | Component    | Value   |     Count  | Price       | Link      |
 |--------------|:-------:|-----------:|------------:|----------:|
