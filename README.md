@@ -45,15 +45,28 @@ and motion sensor occasionally with an thread.
 The thermostat will initiate the heating process once it recieves a temperature that is lower than what is set. Of course, the comparison logic 
 should consider the hysteresis--it would be bad to turn on and off the heater when the temperature dips slightly.
 #### BOM
-| Component    | Value   |     Count  | Price       | Link      |
-|--------------|:-------:|-----------:|------------:|----------:|
-| U1           |  ESP32-S2    |      4     |    $5.00    |    |
-| U2           |  BME280   |      6     |    $6.00    |    |
-| U3           |  MCP602   |      3     |    $2.50    |    |
-| D1           |  NX4832T035      |      1     |    $39.90   |    |
-| R1           |  1M     |      3     |    -    |    |
-| R2           |  10K   |      6     |    -    |    |
+##### Server (one per system)
+| Component    | Value        |  Count     |     Price   | Link      |
+|--------------|:------------:|-----------:|------------:|----------:|
+| U1           |  ESP32-S2    |      1     |    $5.00    |           |
 
+Total: $5
+
+##### Vent (one for every vent)
+| Component    | Value        |  Count     |     Price   | Link      |
+|--------------|:------------:|-----------:|------------:|----------:|
+| U1           |  ESP32-S2    |      1     |    $5.00    |           |
+| U2           |  BME280      |      1     |    $6.00    |           |
+| Q1           |  2N3904      |      1     |    $1.00    |           |
+| X1           |  EKMC1601111 |      1     |    $12.00   |           |
+| M1           |  Servo       |      1     |    $5.00    |           |
+| R1           |  1K          |      1     |      -      |           |
+| R2           |  2K          |      1     |      -      |           |
+| R3           |  1M          |      1     |      -      |           |
+| R4           |  100K        |      1     |      -      |           |
+| Vent         |  -           |      1     |    $10.00   |           |
+
+Total: $39
 
 #### Demo
 To demonstrate the concept, a setup of different-sized heat-insulated boxes with thermometers attatched will simulate a house
