@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+	<link href="data:," rel="icon">
+	<title>ESP32 WebSocket Server</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+<style>
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-family: Arial; 
+    display: inline-block; 
+    text-align: center;
+	background: #151515;
+}
+p {  
+    font-size: 1.2rem;
+}
+
+p, h1, h3 {
+	color: #999;
+}
+
+body {  
+    margin: 0;
+}
+.topnav { 
+    overflow: hidden; 
+    color: #999; 
+    font-size: 1.7rem; 
+}
+.content { 
+    padding: 20px; 
+}
+.card { 
+    /* background-color: rgb(52, 61, 70);  */
+    /* box-shadow: 2px 2px 12px 1px rgba(0,0,0,.5);  */
+	outline-color: aqua;
+}
+.cards { 
+    max-width: 700px; 
+    margin: 0 auto; 
+    display: grid; 
+    grid-gap: 2rem; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+}
+.reading { 
+    font-size: 2.8rem; 
+}
+.packet { 
+    color: #bebebe; 
+}
+.card.temperature { 
+    color: #999; 
+}
+.card.humidity { 
+    color: #1b78e2; 
+}
+
+/*slider css*/
+
+.control-panel {
+    max-width: 700px; 
+    margin: 2rem;
+}
+
+#range {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 6em;
+  color: #999;
+  font-size: 48px;
+}
+.slider {
+  width: 400px;
+  height: 15px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #111;
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00fd0a;
+  cursor: pointer;
+  border: 4px solid #333;
+  box-shadow: -407px 0 0 400px #00fd0a;
+}
+
+.slider::-moz-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00fd0a;
+  cursor: pointer;
+  border: 4px solid #333;
+  box-shadow: -407px 0 0 400px #00fd0a;
+}
+
+.card.control-panel {
+    margin: 0 auto;
+    width: 50%;
+}
+
+/*toggle switch*/
+
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: #111;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #eb379d;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+</style>
+
+</head>
+<body>
+	<div class="topnav">
+		<h3>Smart-Vents Dashboard</h3>
+	</div>
+	<div class="content">
+        <div class="card control-panel">
+            <div id="slider-toggle">
+                <div class="slidecontainer">
+					<h3>Set Target Temperature</h3>
+                    <input type="range" min="20" max="30" value="25" class="slider" id="temp-slider">
+                    <h1 id="range"><span id="range-value"></span>&deg;C</h1>
+                </div>
+            </div>
+			<h3>Main Switch</h3>
+            <div id="main-toggle" style="display: flex; justify-content: center; align-items: center;">
+				<input type="checkbox" id="switch"/>
+				<label for="switch">Toggle</label>
+			</div>
+        </div>
+		<div style="margin-bottom: 2rem;"></div>
+		<div class="cards">
+			<div class="card temperature">
+				<h4><i class="fas fa-thermometer-half"></i> Room #1 - Temp</h4>
+				<p><span class="reading"><span id="t1"></span> &deg;C</span></p>
+				<p class="packet">Reading ID: <span id="rt1"></span></p>
+			</div>
+			<div class="card temperature">
+				<h4><i class="fas fa-thermometer-half"></i> Room #2 - Temp</h4>
+				<p><span class="reading"><span id="t2"></span> &deg;C</span></p>
+				<p class="packet">Reading ID: <span id="rt2"></span></p>
+			</div>
+			<!-- <div class="card temperature">
+				<h4><i class="fas fa-thermometer-half"></i> Room #3 - Temp</h4>
+				<p><span class="reading"><span id="t3"></span> &deg;C</span></p>
+				<p class="packet">Reading ID: <span id="rt3"></span></p>
+			</div>
+			<div class="card temperature">
+				<h4><i class="fas fa-thermometer-half"></i> Room #4 - Temp</h4>
+				<p><span class="reading"><span id="t4"></span> &deg;C</span></p>
+				<p class="packet">Reading ID: <span id="rt4"></span></p> -->
+			</div>
+		</div>
+	</div>
+
+<script>
+
+const slider = document.getElementById("temp-slider");
+const output = document.getElementById("range-value");
+const masterSwitch = document.getElementById("switch");
+output.innerHTML = slider.value;
+
+const gateway = `ws://${window.location.hostname}/ws`;
+let websocket;
+
+window.addEventListener('load', initWebSocket);
+
+function initWebSocket() {
+	console.log("Trying to open a WebSocket connection...");
+	websocket = new WebSocket(gateway);
+
+	websocket.onopen = (event) => {
+		console.log("Connection opened");
+    setInterval(function() {
+            websocket.send("temp");
+    }, 1000);
+	};
+
+	websocket.onclose = (event) => {
+		console.log("Connection closed");
+		setTimeout(initWebSocket, 2000);
+	};
+
+	websocket.onmessage = (event) => {
+		console.log(event.data);
+    document.getElementById("t1").innerHTML = event.data.split(",")[0];
+    document.getElementById("t2").innerHTML = event.data.split(",")[1];
+		// document.getElementById("state-value").innerHTML = event.data;
+	};
+};
+
+slider.oninput = function() {
+	output.innerHTML = this.value;
+	console.log(this.value);
+	websocket.send(this.value);
+};
+
+masterSwitch.onchange = function() {
+	console.log(masterSwitch.checked);
+	websocket.send(masterSwitch.checked);
+};
+
+</script>
+
+</body>
+</html>
