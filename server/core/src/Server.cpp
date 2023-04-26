@@ -98,8 +98,8 @@ void ws_connectWifi()
                                                         &instance_got_ip));
     wifi_config_t wifi_config = {
         .sta = {
-            .ssid = "ASHW8",
-            .password = "M0ntana0r0",
+            .ssid = "SSID",
+            .password = "PSWD",
             /* Setting a password implies station will connect to all security modes including WEP/WPA.
              * However these modes are deprecated and not advisable to be used. Incase your Access point
              * doesn't support WPA2, these mode can be enabled by commenting below line */
@@ -278,7 +278,7 @@ static esp_err_t handle_ws_req(httpd_req_t* req)
     }
 
     ESP_LOGI("Websocket", "frame len is %d", ws_pkt.len);
-    //FIXME:
+
     if (ws_pkt.type == HTTPD_WS_TYPE_TEXT && strcmp( (char*) ws_pkt.payload, "temp") == 0)
     {
         free(buf);
