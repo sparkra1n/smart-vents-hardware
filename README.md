@@ -1,5 +1,4 @@
 # Smart Vents
-Solar Suitcase 2022 - 2023 \
 IoT system for improved efficiency in multi-zoned heating
 
 ## Problem
